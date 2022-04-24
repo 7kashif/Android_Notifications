@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createNotificationChannel() //we only have to do this once
-
+//        *********thi below code is used in case you want to create  notification without service*************
 //        val intent = Intent(this,MainActivity::class.java)
 //        //here we will create a pending intent that will allow android to execute a piece of
 //        // code from our app to open our app on notification click
@@ -46,10 +46,6 @@ class MainActivity : AppCompatActivity() {
 //        binding.notifyButton.setOnClickListener {
 //            manager.notify(NOTIFICATION_ID,notification)
 //        }
-
-        binding.notifyButton.setOnClickListener {
-            startMyService(0)
-        }
 
         viewModel.timer.observeForever {
             binding.tvTimer.text = it.toString()
